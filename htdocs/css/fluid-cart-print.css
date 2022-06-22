@@ -1,0 +1,136 @@
+#fluid-print-div {
+	display: block !important;
+}
+
+.f-detailed-div {
+	display: none !important;
+}
+
+.f-email-hide {
+	display: none !important;
+}
+
+.fluid-cart-no-scroll {
+	overflow-y: none;
+	border-bottom: 1px dotted #B9B9B9;
+	border-top: 1px dotted #B9B9B9;
+	width: 100%;	
+}
+
+.div-table-cell-print {
+	display: none !important;
+}
+
+.f-print-img-hide {
+	display: inline-block !important;
+}
+
+.div-table-cell-print-image {
+	display: none !important;
+}
+
+.f-thank-you {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.f-print-header-hide {
+	display: none !important;
+}
+
+.f-extra-invoice {
+	display: block !important;
+}
+
+#fluid-main-modal-checkout {
+	display: none !important;
+	overflow-y: hidden !important;
+	overflow-x: hidden !important;
+	box-sizing: none !important;
+	-webkit-box-sizing: none !important;
+}
+
+#modal-fluid-header-div-checkout {
+	border: 0px solid black !important;
+	background-color: none !important;
+}
+
+#fluid-modal-continue-div {
+	display: none;
+}
+
+#temp-button-delete {
+	display: none;
+}
+
+#fluid-main-modal-footer-checkout {
+	display: none !important;
+	box-sizing: inherit !important;
+	-webkit-box-sizing: inherit !important;
+}
+
+.modal-content-invoice {
+	border: 0px solid black !important;
+}
+
+.collapse {
+	display: block !important;
+}
+
+.f-checkout-modal-confirm-body {
+	max-height: 100%;
+	overflow-y: none;
+}
+
+.f-modal-print {
+	position: initial !important;
+}
+
+.fluid-card-content {
+	display: none;
+}
+
+#fluid-blur-wrap {
+	display: none;
+}
+
+.f-social-checkout-div {
+	display: none;
+}
+
+.f-print-receipt {
+	display: none;
+}
+
+.f-detailed-div {
+	padding: 15px 0px 5px 0px;
+	border-top: 1px solid #b9b9b9;
+	font-size: 16px;
+}
+
+.f-refund-detailed-div {
+	display: none;
+}
+
+.f-refund-div {
+	display: none !important;
+}
+
+#f-row-refund {
+	display: none !important;
+}
+
+.f-row-receipt-div-hide {
+	display: block !important;
+	min-height: 100% !important;
+}
+
+#f-row-receipt {
+	display: block !important;
+	min-height: 100% !important;
+}
+
+.f-leos-info-div {
+	display: block;
+	padding-top: 10px;
+}

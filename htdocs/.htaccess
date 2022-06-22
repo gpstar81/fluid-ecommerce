@@ -1,0 +1,32 @@
+RewriteEngine on
+RewriteRule ^account/([^.]+)$ fluid.account.php?f=$1 [L]
+RewriteRule ^account fluid.account.php [L]
+RewriteRule ^checkout/ fluid.cart.php [L]
+RewriteRule ^checkout fluid.cart.php [L]
+RewriteRule ^rentals/ rentals.php [L]
+RewriteRule ^rentals rentals.php [L]
+RewriteRule ^Rentals/ rentals.php [L]
+RewriteRule ^Rentals rentals.php [L]
+RewriteRule ^Fuji-Try-and-Buy/ fujitrybuy.php [L]
+RewriteRule ^Fuji-Try-and-Buy fujitrybuy.php [L]
+RewriteRule ^fuji-try-and-buy/ fujitrybuy.php [L]
+RewriteRule ^fuji-try-and-buy fujitrybuy.php [L]
+
+RewriteRule ^deals/([^.]+)$ fluid.listing.php?cat_id=$1&fdata=$3 [L,NC,QSA]
+
+RewriteRule ^category/([0-9]+)/([^.]+)$ fluid.listing.php?cat_id=$1&name=$2&fdata=$3 [L,NC,QSA]
+RewriteRule ^product/([0-9_]+)/([^.]+)/([^.]+)$ fluid.item.php?p_id=$1&p_mfgcode=$2&name=$3 [L]
+
+RewriteRule ^search fluid.listing.php?f_search=$1&fdata=$2 [L,NC,QSA]
+
+RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+
+<IfModule mod_expires.c>
+
+<FilesMatch "\.(gif|png|jpg|js|css|swf)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 10 years"
+</FilesMatch>
+
+</IfModule>
+

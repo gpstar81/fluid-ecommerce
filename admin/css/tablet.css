@@ -1,0 +1,73 @@
+body {
+    font-size: 180%;
+}
+
+.btn {
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	border-radius: 6px;
+}
+
+.f-scan-buttons-adjust {
+	width: 280px;
+}
+
+.fluid-large-menu>li>a {
+	font-size: 18px;
+	padding: 10px 20px;
+}
+
+.fluid-admin-search-btn-large {
+	height: 45px;
+}
+
+.fluid-admin-search-btn-large-width {
+	min-width: 100px;
+}
+
+.f-scan-image-min {
+    width: 140px;
+    min-width: auto;
+}
+
+.input-group-addon {
+	font-size: 18px;
+}
+
+.f-navbar-special {
+	font-size: 12px;
+}
+
+
+.logo-resize-f {
+    width: 80px;
+    height: 55px;
+}
+
+.fluid-cart {
+    font-size: 14px;
+}
+
+.form-control, output {
+    font-size: 16px;
+}
+
+@media (min-width: 992px) {
+.logo-resize-f {
+    width: 80px;
+    height: 55px;
+}
+
+	#fluid-category-listing {
+		font-size: 85%;
+	}
+
+	#fluid-category-listing {
+		font-size: 55%;
+	}
+
+	.f-navbar-special {
+		font-size: 16px;
+	}	
+}

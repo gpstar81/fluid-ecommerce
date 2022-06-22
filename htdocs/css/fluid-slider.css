@@ -1,0 +1,209 @@
+/***** trending now *******/
+.trending-product {
+    padding: 6px 6px 10px 6px;
+    width: 100%;
+}
+.trending-product-thumbnail {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    max-height: 300px;
+    margin: 0;
+    background-color: white;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 0 20px 0;
+    transition: all 0.2s cubic-bezier(.25,.8,.25,1);
+    border: 1px solid #d2d2d2;
+}
+
+.trending-product-image-bundles {
+	margin: auto;
+	max-height: 120px;
+	padding-left: 5px;
+    padding-right: 5px;
+   -webkit-box-reflect: below -5px -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.2) 0%, transparent 35%, transparent 100%);
+    transition: all 0.7s cubic-bezier(.25,.8,.25,1);  
+}
+
+.trending-product-image {
+	margin: auto;
+	max-height: 140px;
+	padding-left: 5px;
+    padding-right: 5px;
+   -webkit-box-reflect: below -5px -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.2) 0%, transparent 35%, transparent 100%);
+    transition: all 0.7s cubic-bezier(.25,.8,.25,1);  
+}
+/*
+.trending-product-image:hover {
+    transform: translateY(-3px);
+    transition: all 0.5s ease-in-out;
+}
+*/
+.trending-product-thumbnail:hover>.badge-new {
+    background: #006cc9;
+    transition: all 0.2s cubic-bezier(.25,.8,.25,1);     
+}
+.trending-product-thumbnail:hover>.badge-sale {
+    background: #db0000;
+    transition: all 0.2s cubic-bezier(.25,.8,.25,1);     
+}
+.trending-product-thumbnail:hover {
+    box-shadow: 0 8px 14px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.12);   
+}
+
+.trending-product-heading-manufacturer{
+    text-align: left;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 5px 0;    
+}
+.trending-product-heading-name {
+    text-align: left;    
+    margin: 0;
+    padding: 0;
+}
+.trending-product-heading-price-container {
+    text-align: center;
+	position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 15px 15px 0;
+    padding: 0;
+    width: 100%;
+}
+.trending-product-heading-price {
+    text-align: right;
+    display: inline-block;
+    font-size: 14px;    
+    padding: 0;
+    margin: 5px 0 0 10px;
+    color: rgba(65,65,65, 10);
+    font-weight: 600;
+    text-shadow: 4px 3px 7px rgba(57, 58, 58, 0.33);    
+}
+
+.price-old {
+    text-decoration: line-through;
+    font-size: 13px;
+    color: red;
+    margin-top: 7px;
+}
+
+@media (min-width: 321px) {
+	.price-old {
+		font-size: 80%;
+    }
+}
+
+@media (min-width: 384px) {
+	.price-old {
+		font-size: 85%;
+    }
+}
+
+@media (min-width: 410px) {
+	.price-old {
+		font-size: 90%;
+    }
+}
+
+@media (min-width: 420px) {
+	.price-old {
+		font-size: 13px;
+	}
+}
+
+.badge-new, .badge-sale{
+    width: 32px;
+    height: 32px;
+    background: white;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    left:0;
+    margin: 0 10px 0 20px;
+    color: white;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+.badge-new:before {
+    content: "NEW";
+    position: relative;
+    top: 10px;
+    left: 1px;
+}
+.badge-new {
+    background: #337ab7;
+    transition: all 0.7s cubic-bezier(.25,.8,.25,1);    
+}
+.badge-sale:before {
+    content: "SALE";
+    position: relative;
+    top: 10px;
+    left: 1px;
+}
+.badge-sale {
+    background: #ff2d2d;
+    transition: all 0.7s cubic-bezier(.25,.8,.25,1);    
+}
+
+@media (max-width: 991px) {
+
+	.trending-product-image {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.trending-product-image-bundles {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.trending-product-thumbnail:hover>.trending-product-image {
+		transform: translateY(0px);
+	}
+	.trending-product-thumbnail:hover {
+		box-shadow: 0 0px 0px rgba(0,0,0,0.0), 0 0px 0px rgba(0,0,0,0.0);   
+	}
+	.badge-new, .badge-sale{
+		position: relative;    
+		float: right;
+	}
+
+}
+
+.f-trending-div-font {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.f-trending-div {
+	font-size: 16px;
+	font-weight: 600;
+	padding-top: 5px;
+}
+
+.f-trending-bf-div {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+@media (min-width: 768px) {
+	.f-trending-div-font {
+		font-size: 22px;
+	}
+	
+	.f-trending-div {
+		font-size: 22px;
+		padding-top: 15px;
+	}
+
+	.f-trending-bf-div {
+		font-size: 22px;
+	}	
+}

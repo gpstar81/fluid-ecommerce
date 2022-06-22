@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'leos';
+  src:  url('../fonts/leos.eot?9xycx9');
+  src:  url('../fonts/leos.eot?9xycx9#iefix') format('embedded-opentype'),
+    url('../fonts/leos.ttf?9xycx9') format('truetype'),
+    url('../fonts/leos.woff?9xycx9') format('woff'),
+    url('../fonts/leos.svg?9xycx9#leos') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'leos' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-leos-logo:before {
+  content: "\e900";
+}
+.icon-leos-logo-rotate:before {
+  content: "\e901";
+}
+

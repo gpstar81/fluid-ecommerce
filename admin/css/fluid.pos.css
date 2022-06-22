@@ -1,0 +1,52 @@
+.f-pos-cat-btns-container {
+	display: inline-block;
+    max-width: 192px;
+    min-width: 192px;
+    width: 192px;
+    margin: 10px;
+}
+
+.f-pos-cat-btns {
+    min-height: 80px;
+    max-height: 80px;
+    height: 80px;
+    white-space: normal;
+    min-width: 192px;
+}
+
+.f-pos-cat-btn-text {
+	height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 192px;
+}
+
+.f-pills>li.active>a,
+.f-pills>li.active>a:focus,
+.f-pills>li.active>a:hover {
+    color: #009BDD;
+    background-color: #EBF7FD;
+}
+
+.f-pills>li>a {
+    border-radius: 4px;
+}
+
+.f-right-container {
+	width: 100%;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 80vh;
+    min-height: 80vh;
+	background-color: #EBF0F5
+}
+
+.pos-footer {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: #565656; 
+    color: #D0D0D0;
+}

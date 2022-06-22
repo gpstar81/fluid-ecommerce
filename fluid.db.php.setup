@@ -1,0 +1,282 @@
+<?php
+// Michael Rajotte - 2017 Septembre
+// fluid.db.php
+// Fluid required file.
+
+	// MySQL login and database information.
+	define('DB_SERVER', 'localhost');
+	define('DB_DATABASE', DATABASE_NAME);
+	define('DB_USERNAME', LOGIN_NAME);
+	define('DB_PASSWORD', PASSWORD);
+	
+	// Site root.
+	define('WWW_SITE', 'http://www.yoursite.com/');	
+	
+	// Folder locations.
+	// Important to have / at end of each folder define.
+	define('FOLDER_ADMIN_TEMP', '/var/www/local/fluid/admin/tmp/');
+	define('FOLDER_ROOT', '/var/www/local/fluid/htdocs/');
+	define('FOLDER_FLUID', '/var/www/local/fluid/');
+	define('FOLDER_IMAGES', '/var/www/local/fluid/htdocs/images/');
+	define('FOLDER_IMAGES_TEMP', '/var/www/local/fluid/htdocs/images/temp/');
+	define('FOLDER_CACHED_IMAGES', '/var/www/local/fluid/htdocs/images/cached/');
+	
+	// Location to write the fluid debug log if enabled.
+	define('DEBUG_LOG', '/var/log/fluid.debug.log');
+	define('ENABLE_LOG', FALSE); // Enable writing to the debug log.
+
+	// --> Set to FALSE to close the online store. Ordering and adding to cart will be disabled. Set to TRUE to stay open.
+	define('FLUID_STORE_OPEN', TRUE);
+	define('FLUID_STORE_CLOSED_MESSAGE', 'PGRpdiBpZD0nZi1oZWFkZXItbWVzc2FnZScgc3R5bGU9J2Rpc3BsYXk6IGlubGluZS1ibG9jazsnJz5PbmxpbmUgb3JkZXJpbmcgd2lsbCBiZSBsaXZlIGluPC9kaXY+IDxkaXYgaWQ9J2YtaGVhZGVyLWNvdW50ZG93bicgc3R5bGU9J2Rpc3BsYXk6IGlubGluZS1ibG9jazsnPjwvZGl2PiA8c2NyaXB0PnZhciBjb3VudERvd25EYXRlPW5ldyBEYXRlKCdOb3YgMTUsIDIwMTcgMDA6MDA6MDAnKS5nZXRUaW1lKCk7dmFyIHg9c2V0SW50ZXJ2YWwoZnVuY3Rpb24oKXt2YXIgbm93PW5ldyBEYXRlKCkuZ2V0VGltZSgpO3ZhciBkaXN0YW5jZT1jb3VudERvd25EYXRlLW5vdzt2YXIgZGF5cz1NYXRoLmZsb29yKGRpc3RhbmNlLygxMDAwKjYwKjYwKjI0KSk7dmFyIGhvdXJzPU1hdGguZmxvb3IoKGRpc3RhbmNlJSgxMDAwKjYwKjYwKjI0KSkvKDEwMDAqNjAqNjApKTt2YXIgbWludXRlcz1NYXRoLmZsb29yKChkaXN0YW5jZSUoMTAwMCo2MCo2MCkpLygxMDAwKjYwKSk7dmFyIHNlY29uZHM9TWF0aC5mbG9vcigoZGlzdGFuY2UlKDEwMDAqNjApKS8xMDAwKTtkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZi1oZWFkZXItY291bnRkb3duJykuaW5uZXJIVE1MPWRheXMrJ2QgJytob3VycysnaCAnK21pbnV0ZXMrJ20gJytzZWNvbmRzKydzICc7aWYoZGlzdGFuY2U8MCl7Y2xlYXJJbnRlcnZhbCh4KTtkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZi1oZWFkZXItbWVzc2FnZScpLmlubmVySFRNTD0nV2UgaGF2ZSBsYXVuY2hlZCEnO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdmLWhlYWRlci1jb3VudGRvd24nKS5pbm5lckhUTUw9Jyd9fSwxMDAwKTs8L3NjcmlwdD4=');
+
+	define('FLUID_COMPANY_NAME', 'Leos Camera Supply');
+	define('FLUID_COMPANY_ICON', 'files/leos-logo.png');
+
+	// --> Store message that appears in the header.
+	define('FLUID_STORE_MESSAGE_ENABLED', FALSE);
+	define('FLUID_STORE_MESSAGE', 'V2UgYXJlIG9wZW4h');
+	
+	// --> Store message modal.
+	define('FLUID_STORE_MESSAGE_MODAL_ENABLED', FALSE);
+	define('FLUID_STORE_MESSAGE_MODAL', 'PGRpdiBvbkNsaWNrPSdqc19mbHVpZF9tb2RhbF9zdGF0dXNfbG9hZCgpOyc+TEVPJ1MgUEhPTkUgU0VSVklDRSBQUk9WSURFUiBIQUQgQSBNQUpPUiBGSUJSRSBMSU5LIFNFVkVSRUQgRFVFIFRPIFdFQVRIRVIgQ09ORElUSU9OUyBGRUIuIDFTVC4gQ0xJQ0sgRk9SIE1PUkUgSU5GTy48L2Rpdj4=');
+	
+	// Note: Disabled items are never shown regardless of this setting.
+	// --> 0 = Show all items regardless of stock status.
+	// --> 1 = Show only in stock items only.
+	// --> 2 = Show all items regardless of stock status (except hide discontinued items).
+	define('FLUID_ITEM_LISTING_STOCK_AND_DISCOUNT_ONLY', 0);
+	// --> Set to TRUE to switch the checkout to sandbox mode for payment testing.
+	define('FLUID_PAYMENT_SANDBOX', TRUE);
+
+	define('MONERIS_ENABLED', FALSE);
+	define('MONERIS_API_KEY', '');
+	define('MONERIS_API_KEY_SANDBOX', '');
+	define('MONERIS_STORE_ID', '');
+	define('MONERIS_STORE_ID_SANDBOX', 'store5'); // --> store1, store2, store3, store4, store5. --> https://developer.moneris.com/More/Testing/Testing%20a%20Solution // Store 1 for regular testing.
+	define('MONERIS_USER_NAME', '');
+	define('MONERIS_USER_NAME_SANDBOX', 'demouser');
+	define('MONERIS_PASSWORD', '');
+	define('MONERIS_PASSWORD_SANDBOX', 'password');
+	// --> Get the moneris android pay key at https://esqa.moneris.com/mpg/ --> Log in and goto Admin menu.
+	define('MONERIS_ANDROID_PAY_KEY', '');
+
+	define('PAYPAL_ENABLED', FALSE);
+	define('PAYPAL_SANDBOX_ACCOUNT', '');
+	define('PAYPAL_CLIENT_ID_SANDBOX','');
+	define('PAYPAL_SECRET_SANDBOX','');
+	define('PAYPAL_CLIENT_ID','');
+	define('PAYPAL_SECRET','');
+	define('PAYPAL_ENVIRONMENT', 'production');
+	define('PAYPAL_ENVIRONMENT_SANDBOX', 'sandbox');
+
+	define('AUTH_NET_ENABLED', FALSE);
+	define('AUTH_NET_LOGIN_ID', '');
+	define('AUTH_NET_API_KEY', '');
+	define('AUTH_NET_SANDBOX_LOGIN_ID', '');
+	define('AUTH_NET_SANDBOX_API_KEY', '');
+	//define('AUTH_NET_SANDBOX_KEY', '');
+	
+	define('GOOGLE_CLIENT_LOGIN_ID', '');
+	define('GOOGLE_CLIENT_SECRET', '');
+
+	// Google maps api key for address auto fill.
+	define('GOOGLE_MAPS_API_KEY', '');
+
+	// Shipping information
+	define('ENABLE_CANADAPOST', FALSE);
+	define('CANADA_POST_USERNAME', '');
+	define('CANADA_POST_PASSWORD', '');
+	define('CANADA_POST_CUSTOMER_NUMBER', '');
+	define('CANADA_POST_SIGNATURE', FALSE);
+	define('ENABLE_FEDEX', FALSE);
+	define('FEDEX_ACCOUNT', '');
+	define('FEDEX_METER', '');
+	define('FEDEX_KEY', '');
+	define('FEDEX_PASSWORD', '');
+	define('FEDEX_PERSON', '');
+	define('FEDEX_COMPANY', '');
+	define('FEDEX_PHONE', '');
+	define('FEDEX_STREET', '');
+	define('FEDEX_CITY', '');
+	define('FEDEX_PROVINCE', '');
+	define('FEDEX_POSTAL_CODE', '');
+	define('FEDEX_COUNTRY_CODE', '');
+	define('FEDEX_SIGNATURE', FALSE);
+
+	// Facebook login.
+	define('FACEBOOK_CLIENT_LOGIN_ID', '');
+	define('FACEBOOK_CLIENT_SECRET', '');
+	
+	// Facebook feed.
+	define('FACEBOOK_PAGEID', '');
+	define('FACEBOOK_APPID', '');
+	define('FACEBOOK_APPSECRET', '');
+	define('FACEBOOK_APPTOKEN', '');
+	define('FACEBOOK_USERTOKEN', '');
+	define('FACEBOOK_NAME', '');
+
+	// Twitter feed.
+	define('TWITTER_NAME', '');
+	define('TWITTER_CONSUMER_KEY', '');
+	define('TWITTER_SECRET_KEY', '');
+
+	// Instagram feed.
+	define('INSTAGRAM_ACCOUNT', '');
+	define('INSTAGRAM_ACCESS_TOKEN', '');
+
+	// YouTube feed.
+	define('YOUTUBE_USER_LOGO', 'files/logo.png');
+	define('YOUTUBE_FEED_URL', '');
+
+	// Free shipping margin and value criteria.
+	define('FREE_SHIPPING_FORMULA_ENABLED', TRUE);
+	define('FREE_SHIPPING_OVERSIZED_ENABLED', TRUE);
+	define('FREE_SHIPPING_MARGIN_PERCENTAGE_STEP_1', 100);
+	define('FREE_SHIPPING_CART_TOTAL_STEP_1', 95);
+	define('FREE_SHIPPING_MARGIN_PERCENTAGE_STEP_2', 0);
+	define('FREE_SHIPPING_CART_TOTAL_STEP_2', 250);
+	define('FREE_SHIPPING_MARGIN_PERCENTAGE_STEP_3', 0);
+	define('FREE_SHIPPING_CART_TOTAL_STEP_3', 500);
+	define('FREE_SHIPPING_MARGIN_PERCENTAGE_STEP_4', 0);
+	define('FREE_SHIPPING_CART_TOTAL_STEP_4', 1000);
+	define('FREE_SHIPPING_MARGIN_PERCENTAGE_STEP_5', 0);
+	define('FREE_SHIPPING_CART_TOTAL_STEP_5', 1000);
+
+	// Free shipping for special order items.
+	define('FREE_SHIPPING_SPECIAL_ENABLED', FALSE);
+	
+	// Free shipping for items if not enough stock.
+	define('FREE_SHIPPING_NOT_ENOUGH_STOCK', FALSE);
+	
+	define('SERVER_TIMEZONE', 'America/Vancouver');
+
+	// Canada Post.
+	define('FLUID_ORIGIN_POSTAL_CODE', 'V6Z1L4');
+
+	// In store pickup.
+	define('ENABLE_IN_STORE_PICKUP', TRUE);
+	define('IN_STORE_PICKUP', "In store pickup");
+	define('ENABLE_IN_STORE_PICKUP_PAYMENT', FALSE);
+
+	// Password hash
+	define('HASH_KEY', ''); // --> Used to encrypt passwords. Randomise this on a new installation.
+
+	// Currency
+	define('HTML_CURRENCY', '$');
+	define('HTML_CURRENCY_GLYPHICON', 'fa fa-usd'); // --> Font awesome currency icon.
+	define('STORE_CURRENCY', 'CAD');
+
+	// Some pre-defined variable limits.
+	define('VAR_MAXRATING', 5); // --> Max amount of stars in a item's rating.
+	define('VAR_LISTING_MAX', 30); // --> Max number of items to load at one time in a item listing -> fluid.listing.php or order listing -> fluid.account.php.
+	define('VAR_MAX_ADDRESSES', 50); // --> Max amount of addresses somebody can have. Prevents creating / overloading database. This gets multipled by 3 when creating temporary addresses in the $_SESSION variable.
+
+	// Filter for price range jumps on fluid.listing.php
+	define('FLUID_LISTING_PRIX_JUMPS', 250);
+
+	// --> The site slogan.
+	define('FLUID_SLOGAN_ENABLED', TRUE);
+	define('FLUID_SLOGAN', 'Experience the difference');
+
+	// --> Enable or disable if the navbar pins itself to the top.
+	define('FLUID_NAVBAR_PIN', FALSE);
+	define('FLUID_LISTING_FILTERS_PINNED', FALSE);
+	define('FLUID_NAVBAR_PIN_MOBILE', TRUE);
+	define('FLUID_LISTING_FILTERS_PINNED_MOBILE', TRUE);
+
+	// --> Mailer settings
+	define('FLUID_EMAIL', '');
+	define('FLUID_EMAIL_PASSWORD', '');
+	define('FLUID_EMAIL_SERVER', '');
+	define('FLUID_EMAIL_ENCRYPTION_METHOD', 'ssl');
+	define('FLUID_EMAIL_PORT', 465);
+	define('FLUID_EMAIL_SENT_FOLDER', 'Sent Server');
+
+	define("EMAIL_FOOTER", "
+	<br><br>Regards</a>
+	</div>");
+
+	define("EMAIL_FOOTER_RAW", "\n\nRegards,");
+
+	// --> Deals and trending sliders
+	define('FLUID_BLACK_FRIDAY', FALSE);
+	define('FLUID_BLACK_FRIDAY_MESSAGE_HEADER', 'TGVvJ3MgQkxBQ0sgRlJJREFZIHdlZWtlbmQgZGVhbHMuIEtlZXAgb24gc2F2aW5nLi4u');
+	define('FLUID_BLACK_FRIDAY_BUTTON', 'PGRpdiBjbGFzcz0nYnRuIGJ0bi1kYW5nZXIgYnRuLWxnIGJ0bi1zcGVjaWFscyBidG4tYmFubmVyLWJsYWNrLWZyaWRheScgb25DbGljaz0nanNfcmVkaXJlY3RfdXJsKHt1cmw6QmFzZTY0LmVuY29kZSgiZGVhbHMvYmxhY2tmcmlkYXl3ZWVrZW5kIil9KTsnPjxpIGNsYXNzPSJmYSBmYS1naWZ0IiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9pPiBWaWV3IGFsbCBCTEFDSyBGUklEQVkgd2Vla2VuZCBkZWFscyA8aSBjbGFzcz0iZmEgZmEtYXJyb3ctcmlnaHQiIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2k+PC9kaXY+');
+
+	define('FLUID_DISPLAY_FORMULA_DEAL_SLIDER', FALSE);
+	define('FLUID_FORMULA_DEAL_SLIDER_MESSAGE_HEADER', 'VGhlIGxhdGVzdCBob3QgYnVuZGxlcyBhbmQgYmlnIGRlYWxzIGF0IExlbydzOg==');
+	define('FLUID_FORMULA_BUTTON', 'PGRpdiBjbGFzcz0nYnRuIGJ0bi1pbmZvIGJ0bi1sZyBidG4tc3BlY2lhbHMnIG9uQ2xpY2s9J2pzX3JlZGlyZWN0X3VybCh7dXJsOkJhc2U2NC5lbmNvZGUoImRlYWxzL2J1bmRsZXMiKX0pOyc+PGkgY2xhc3M9ImZhIGZhLWdpZnQiIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2k+IFZpZXcgYWxsIGJ1bmRsZSBkZWFscyA8aSBjbGFzcz0iZmEgZmEtYXJyb3ctcmlnaHQiIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2k+PC9kaXY+');
+
+	define('FLUID_DISPLAY_DEAL_SLIDER', TRUE);
+	define('FLUID_DEAL_SLIDER_MESSAGE_HEADER', 'Q2hlY2sgb3V0IHRoZXNlIGxhdGVzdCBkZWFscyBhdCBMZW8nczo=');
+	define('FLUID_DEAL_BUTTON', 'PGRpdiBjbGFzcz0nYnRuIGJ0bi1pbmZvIGJ0bi1sZyBidG4tc3BlY2lhbHMnIG9uQ2xpY2s9J2pzX3JlZGlyZWN0X3VybCh7dXJsOkJhc2U2NC5lbmNvZGUoImRlYWxzL2FsbCIpfSk7Jz48aSBjbGFzcz0iZmEgZmEtZ2lmdCIgYXJpYS1oaWRkZW49InRydWUiPjwvaT4gVmlldyBhbGwgZGVhbHMgPGkgY2xhc3M9ImZhIGZhLWFycm93LXJpZ2h0IiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9pPjwvZGl2Pg==');
+
+	define('FLUID_DISPLAY_TRENDING_SLIDER', TRUE);
+	define('FLUID_TRENDING_SLIDER_MESSAGE_HEADER', 'V2hhdCBpcyBwb3B1bGFyIGF0IExlbydzPyBUaGUgbGF0ZXN0IHRyZW5kaW5nIHByb2R1Y3RzOg==');
+
+	// --> Enable or disable the banner system from showing on the index page.
+	define('FLUID_BANNERS_ENABLED', TRUE);
+
+	// --> Enable or disable the categories on the index page.
+	define('FLUID_CATEGORIES_ENABLED', TRUE);
+	// --> The position of the categories data on the index page.
+	define('FLUID_CATEGORIES_POSITION', 'TOP');
+
+	// --> Enable or disable inifinte scrolling on the item listing pages. When disabled, pagination is used instead.
+	define('FLUID_LISTING_INFINITE_SCROLLING', FALSE);
+
+	// --> Allow pre-orders.
+	define('FLUID_PREORDER', TRUE);
+
+	// --> Allow purchasing when not enough stock.
+	define('FLUID_PURCHASE_OUT_OF_STOCK', FALSE);
+
+	// --> Search relevance settings.
+	define('FLUID_SEARCH_RELEVANCE', 1.8);
+
+	// --> Ship to non billing address.
+	define('FLUID_SHIP_NON_BILLING', FALSE);
+
+	// --> Controls the layout of the login/menu buttons, especially on tablet 768 sizes.
+	define('FLUID_NAVBAR_CART_MENU', FALSE);
+
+	// --> Menu size. Used when FLUID_NAVBAR_CART_MENU is set to TRUE. Example: When login buttons, cart etc are put onto the navbar for resolutions >= 768px.
+	// --> Not used. FLUID_MENU_SIZE_ALT overrides this.
+	define('FLUID_MENU_SIZE_768', 3);
+	define('FLUID_MENU_SIZE_992', 4);
+	define('FLUID_MENU_SIZE_1200', 5);
+	define('FLUID_MENU_SIZE_1600', 7);
+
+	// --> Alt sizes. Used when FLUID_NAVBAR_CART_MENU is set to FALSE. Example: When the login buttons, cart etc are on the header and not on the navbar for resolutions >= 768px.
+	define('FLUID_MENU_SIZE_ALT_768', 7);
+	define('FLUID_MENU_SIZE_ALT_992', 8);
+	define('FLUID_MENU_SIZE_ALT_1200', 9);
+	define('FLUID_MENU_SIZE_ALT_1600', 10);
+	
+	// --> Enable the feedback modal on the website to receive customer feedback.
+	define('FLUID_FEEDBACK_ENABLE', TRUE);
+
+	// --> The amount of time in milliseconds for the feedback timer to initalise. 60000 = 60 seconds.
+	define('FLUID_FEEDBACK_TIMER_LENGTH', 10000);
+
+	// --> Merge additional savings into instant savings?
+	define('FLUID_ADDITIONAL_SAVINGS_MERGE', TRUE);
+
+	// --> Max amount of images to show on the item page images. Additional images will be ignored. Set your sequence in the multi item editor.
+	define('FLUID_ITEM_PAGE_MAX_IMAGES', 5);
+
+	// Twilo settings for the SMS system. From twilio.com/user/account
+	define('TWILIO_ENABLED', TRUE);
+	define('TWILIO_ACCOUNT_SID', '');
+	define('TWILIO_AUTH_TOKEN', '');
+	define('TWILIO_NUMBER', '');
+
+	// Used on the SMS window for the message tag from the server sent SMS messages. ie: Shows who sent the message, you can add a little graphic as well via html tags <img>.
+	define('SMS_MESSAGE_NAME_TAG', 'Leo\'s <img style=\'width: 24px;\' src=\'files/logo.png\'>');
+	
+	define('FLUID_LIVE_SEARCH_ENABLED', TRUE);
+	define('FLUID_SPLIT_SHIPPING', TRUE);
+	define('FLUID_PROVINCES_EXCLUSIONS', '');
+	define('FLUID_SAVINGS_TIMER_HIDE', TRUE);
+
+?>
