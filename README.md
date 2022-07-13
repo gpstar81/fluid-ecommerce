@@ -1,7 +1,7 @@
 Fluid
 Michael Rajotte - 2016 June
 
-Fluid is a php/javascript/mysql/bootstrap 3 driven e-commerce website platform. This was never intended to be distributed easily as it was a base I created for building custom e-commerce commissioned sites for clients.
+Fluid is a php/javascript/mysql/bootstrap 3 driven e-commerce website platform. This was never intended to be distributed easily as it was a base I created for building custom e-commerce commissioned sites for clients for older versions of PHP (5 or lower) at the time.
 
 Feel free to use anything from this in your own projects.
 
